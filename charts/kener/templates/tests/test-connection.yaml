@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "kener.fullname" . }}/healthcheck:{{ .Values.service.port }}']
+      args: ['{{ include "kener.fullname" . }}:{{ .Values.service.port }}/healthcheck']
   restartPolicy: Never
