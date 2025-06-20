@@ -1,3 +1,4 @@
+{{- if eq .Values.databaseType "sqlite" }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -9,3 +10,4 @@ spec:
     requests:
       storage: {{ .Values.storage.size }}
   storageClassName: {{ .Values.storage.class }}
+{{ end }}
