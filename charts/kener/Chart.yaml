@@ -8,3 +8,7 @@ maintainers:
   - name: 1995parham
     url: https://github.com/1995parham
     email: parham.alvani@gmail.com
+  - name: postgresql
+    version: "16.7.13"
+    repository: "oci://registry-1.docker.io/bitnamicharts/postgresql"
+    condition: postgresql.enabled
