@@ -3,7 +3,7 @@ name: kener
 description: Kener is a Modern Open-Source Status Page System
 type: application
 version: 0.0.0
-appVersion: "0.0.16"
+appVersion: "3.2.18"
 maintainers:
   - name: 1995parham
     url: https://github.com/1995parham

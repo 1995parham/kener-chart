@@ -35,8 +35,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["/bin/bash"]
-          args: ["-c", "cd /app ; /usr/bin/node $NODE_ARGS /app/build.js ; /usr/bin/node $NODE_ARGS /app/src/lib/server/startup.js & /usr/bin/node $NODE_ARGS /app/main.js"]
           envFrom:
             - secretRef:
                 name: {{ include "kener.fullname" . }}-env
