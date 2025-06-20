@@ -47,9 +47,12 @@ jobs:
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/1995parham/kener-chart --username ${{ github.repository_owner }} --password-stdin
 
+      - name: install kener helm chart dependencies
+        run: |
+          cd ./charts/kener && helm dep update
+
       - name: package kener helm chart
         run: |
-          helm dep update
           version=${{ github.ref_name }}
           helm package --version "${version##v}" ./charts/kener
 
