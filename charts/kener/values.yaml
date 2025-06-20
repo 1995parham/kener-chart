@@ -99,6 +99,7 @@ tolerations: []
 
 affinity: {}
 
+# kener supports sqlite, postgres and mysql.
 databaseType: "sqlite"
 
 # kener stores incident reports on file in the database folder (when it is configured on sqlite),
