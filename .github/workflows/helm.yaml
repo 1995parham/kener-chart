@@ -49,6 +49,7 @@ jobs:
 
       - name: package kener helm chart
         run: |
+          helm dep update
           version=${{ github.ref_name }}
           helm package --version "${version##v}" ./charts/kener
 
