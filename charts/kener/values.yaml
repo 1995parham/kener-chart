@@ -168,8 +168,10 @@ monitors: []
 
 # configuration for when databaseType is postgres
 postgres:
-  enabled: false # deploy postgres itself using bitnami chart.
-  url: "" # kener database url to access the postgres instance.
+  # deploy postgres itself using bitnami chart.
+  enabled: false
+  # kener database url to access the postgres instance.
+  url: ""
 
 mysql:
   url: ""
