@@ -72,10 +72,14 @@ resources:
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
+  initialDelaySeconds: 15
+  periodSeconds: 3
   httpGet:
     path: /healthcheck
     port: http
 readinessProbe:
+  initialDelaySeconds: 15
+  periodSeconds: 3
   httpGet:
     path: /healthcheck
     port: http
@@ -164,8 +168,8 @@ monitors: []
 
 # configuration for when databaseType is postgres
 postgres:
-  enabled: false  # deploy postgres itself using bitnami chart.
-  url: ""         # kener database url to access the postgres instance.
+  enabled: false # deploy postgres itself using bitnami chart.
+  url: "" # kener database url to access the postgres instance.
 
 mysql:
   url: ""
