@@ -5,9 +5,13 @@ metadata:
   labels:
     {{- include "kener.labels" . | nindent 4 }}
 spec:
+  {{- if eq .Values.databaseType "sqlite" }}
   replicas: 1
   strategy:
     type: Recreate
+  {{- else }}
+  replicas: {{ .Values.replicas }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "kener.selectorLabels" . | nindent 6 }}
