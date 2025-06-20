@@ -12,4 +12,4 @@ dependencies:
   - name: postgresql
     version: "16.7.13"
     repository: "oci://registry-1.docker.io/bitnamicharts"
-    condition: postgresql.enabled
+    condition: postgres.enabled
