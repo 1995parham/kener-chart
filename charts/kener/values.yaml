@@ -99,7 +99,9 @@ tolerations: []
 
 affinity: {}
 
-# kener stores incident reports on file in the database folder,
+databaseType: "sqlite"
+
+# kener stores incident reports on file in the database folder (when it is configured on sqlite),
 # the folder is mounted over the pvc with the following configuration.
 storage:
   size: 1Gi

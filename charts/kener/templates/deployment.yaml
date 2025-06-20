@@ -52,17 +52,21 @@ spec:
             - name: config
               mountPath: "/app/config/"
               readOnly: true
+            {{- if eq .Values.databaseType "sqlite" }}
             - mountPath: "/app/database"
               name: database
+            {{- end }}
             - mountPath: "/run"
               name: run
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
+      {{- if eq .Values.databaseType "sqlite" }}
         - name: database
           persistentVolumeClaim:
             claimName: {{ include "kener.fullname" . }}-database
+      {{- end }}
         - name: config
           configMap:
             name: {{ include "kener.fullname" . }}-config
