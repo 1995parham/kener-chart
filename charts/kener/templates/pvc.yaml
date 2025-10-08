@@ -3,11 +3,15 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "kener.fullname" . }}-database
+  labels:
+    {{- include "kener.labels" . | nindent 4 }}
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.storage.size }}
+  {{- if .Values.storage.class }}
   storageClassName: {{ .Values.storage.class }}
-{{ end }}
+  {{- end }}
+{{- end }}
