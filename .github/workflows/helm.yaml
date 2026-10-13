@@ -20,13 +20,13 @@ jobs:
           python-version: 3.13
 
       - name: set up chart-testing
-        uses: helm/chart-testing-action@v2.8.0
+        uses: helm/chart-testing-action@v2.9.0
 
       - name: run chart-testing (lint)
         run: ct lint --all
 
       - name: create kind cluster
-        uses: helm/kind-action@v1.15.0
+        uses: helm/kind-action@v1.15.1
 
       - name: run chart-testing (install)
         run: ct install --all
